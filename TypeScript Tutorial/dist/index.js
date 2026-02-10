@@ -8,7 +8,6 @@ let string = 'string';
 let bool = true;
 let nul_l = null;
 let undef = undefined;
-//let ObjectPerson = {1,"name"};
 let tuple = [1, "test"]; // must be 2 elements
 var ShirtSize;
 (function (ShirtSize) {
@@ -30,4 +29,79 @@ let NumArr = [1, 2, 3];
 let arr = [1, 2, "chicken"];
 // loops
 NumArr.forEach;
+// functions
+// can specify return type or have it guess depending on return type
+// by default, always returns undefined
+function calculateTax(income) {
+    return income;
+}
+function calculateTax2(income, year) {
+    return income + year;
+}
+// create optional parameter with default value if number of arguments does not match parameters
+function optionalParameter(income, optional = 2022) {
+    return income + optional;
+}
+// pass exact argument as parameters
+calculateTax(10_000);
+calculateTax2(10_000, 2022);
+optionalParameter(1000);
+optionalParameter(10_000, 2345);
+// objects
+// objects are not dynamic in typescript. once created, cannot add or remove properties
+let employee = { id: 1 };
+let person = {
+    id: 1,
+    name: "Thomas",
+    retireFunction: (date) => {
+        console.log(date);
+    }
+};
+let dude = {
+    id: 1,
+    name: "Thomas",
+    retireFunction: (date) => {
+        console.log(date);
+    }
+};
+// union type
+function kgToLbs(weight) {
+    // narrowing
+    if (typeof weight === 'number') {
+        return weight * 2.2; // will interpret weight as number
+    }
+    else { // 
+        return parseInt(weight) * 2.2;
+    }
+}
+kgToLbs(10);
+kgToLbs('10kg');
+let textBox = {
+    drag: () => { },
+    resize: () => { }
+};
+// literal type
+let mass = 50; // value can be 50 or 100
+let quantity = 100;
+// Nullable types
+function greet(name) {
+    if (name) { // checking if name has value. using truthiness of value
+        console.log(name.toUpperCase());
+    }
+    else {
+        console.log("hi");
+    }
+}
+greet(null); // would throw error with just string as parameter type, but can union types to allow null
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date() };
+}
+let customer = getCustomer(0); // return null
+// console.log(customer.birthday); // would cause error since it could be null and would be unable to access property
+// can use if to check null value, but can do better
+// optional property access operator
+// will run code only if customer is not null, prints, returns null
+console.log(customer?.birthday); // print null
+let customer1 = getCustomer(1);
+console.log(customer1?.birthday); // print date
 //# sourceMappingURL=index.js.map
