@@ -153,4 +153,4 @@ console.log(customer1?.birthday); // print date
 // customers?.[0]
 
 // optional call operator
-let log: any = (message: string) => console.log(message);
+let log: any = (message: string)  => console.log(message);

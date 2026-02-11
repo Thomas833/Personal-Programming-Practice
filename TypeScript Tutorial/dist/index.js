@@ -96,12 +96,17 @@ greet(null); // would throw error with just string as parameter type, but can un
 function getCustomer(id) {
     return id === 0 ? null : { birthday: new Date() };
 }
-let customer = getCustomer(0); // return null
+let customer = getCustomer(0); // return undefined
 // console.log(customer.birthday); // would cause error since it could be null and would be unable to access property
 // can use if to check null value, but can do better
 // optional property access operator
 // will run code only if customer is not null, prints, returns null
-console.log(customer?.birthday); // print null
+console.log(customer?.birthday); // print undefined
 let customer1 = getCustomer(1);
 console.log(customer1?.birthday); // print date
+// optional element access operator
+// instead of checking if array is not null or undefined before accessing an element, do this:
+// customers?.[0]
+// optional call operator
+let log = (message) => console.log(message);
 //# sourceMappingURL=index.js.map
