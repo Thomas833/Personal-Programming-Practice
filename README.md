@@ -1,2 +1,1 @@
-This repo is for all personal programming practice. 
-For the TypeScript Tutorial, I followed this guide on YouTube: https://www.youtube.com/watch?v=d56mG7DezGs&t=2642s
+This repo is a dedicated space for me to run, test, and explain Leetcode problems I solve.

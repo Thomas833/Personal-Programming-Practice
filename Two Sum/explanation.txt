@@ -1,0 +1,37 @@
+The most important part of this problem is to use a hashmap to keep track of numbers
+    you have come across while iterating the array.
+
+Hashmaps are handy because they have O(1) lookup. Hashmaps use key-value pairs, so the
+    pair will consist of the value and the index it was found at. We want to put the
+    current iterated num as the key since that has the O(1) lookup.
+
+The algorithm goes like this:
+    - Iterate throug the array once.
+    - Calculate the complement. complement = target - nums[i], i.e it is the other numbers
+        you need to sum to the target.
+    - Check if the complement, which could be a number in your array, is in the hashmap.
+    - If the complement is not in the hashmap, this means the current iterated value and 
+        complement cannot be confirmed to be in the list. Add the iterated number to the
+        hashmap as the key and the current index as its value so that maybe a number you
+        iterate over in the future can sum with it to get the target value.
+    - If the comlement is in the hashmap, this means the current number you are iterating
+        over and a number stored in the hashmap that was previously iterated over sum to 
+        the target.
+    - To return the wanted answer from the function, create a list of two elements and put
+        the index of the complement in the hashmap into the first index and put the current
+        index in the second index.
+
+
+Example:
+
+nums = [2,5,5,9,7], target = 9
+
+hashmap{}
+
+Index | Num | Complement (target - num) | Hashmap before       | Complement in hashmap? | Hashmap after             | Output
+---------------------------------------------------------------------------------------------------------------
+0     | 2   | 7                         | {}                  | No                     | {2: 0}                    | -
+1     | 5   | 4                         | {2: 0}              | No                     | {2: 0, 5: 1}              | -
+2     | 5   | 4                         | {2: 0, 5: 1}        | No                     | {2: 0, 5: 2}              | -
+3     | 9   | 0                         | {2: 0, 5: 2}        | No                     | {2: 0, 5: 2, 9: 3}        | -
+4     | 7   | 2                         | {2: 0, 5: 2, 9: 3}  | Yes                    | {2: 0, 5: 2, 9: 3, 7: 4}  | [0, 4]
