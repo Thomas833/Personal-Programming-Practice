@@ -1,0 +1,20 @@
+1. If the length of the strs array, which contains all of the words, is length 1, then the only word is the longest common prefix.
+2. If the length is 0, then return empty string. 
+
+I set the lcp variable to an empty string and will add to it each time a character meets the condition.
+It is essential to sort the array of words so that you only need to compare the first and last word since
+    these are the words with the greatest difference.
+
+I set the index to 1 to look at the first character of the first and last words. I will increment this every
+    time a char meets the condition.
+
+In python, slicing is bound-safe, so we do not need to include extra logic to account for the edge case where
+    the last word is shorter than the first word and we might try and slice beyond the length of the word. If
+    we slice longer than the length of the word, we simply get the whole word. 
+
+Because we have sorted the array, we only need to take into account the first and last words, since they are
+    the most different from each other. This guarentees the middle words will share the same common prefix 
+    as the first and last word. 
+
+The performance is nlogn + m, where m is the length of the shortest word between the first and last words. It is nlogn because of
+    the sort() function. m is for how many characters in you need to iterate over.
