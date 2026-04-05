@@ -1,0 +1,12 @@
+The official solution has two pointers at the beginning of the array, i and k. i acts as an iterator in the for
+    loop while k acts as the counter for valid numbers.
+
+My solution has one pointer in the beginning of the array, i, and one at the end, j. i will return since it
+    increments when it passes a valid number or swaps with a valid number.
+
+nums[i] != val and nums[j] != val -- increment i 
+nums[i] != val and nums[j] == val -- increment i and decrement j
+nums[i] == val and nums[j] != val -- swap, increment i and decrement j
+nums[i] == val and nums[j] == val -- decrement j
+
+Both solutions perform i O(n) time and have O(1) space complexity, but the official solution is much simpler.
