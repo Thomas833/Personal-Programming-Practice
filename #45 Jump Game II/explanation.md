@@ -1,2 +1,2 @@
-[2,1,3,0,0,2]
-[2,5,1,1,1,1,4]
+I referenced the solutions for this one as I could not create an optimal approach on my own.
+https://leetcode.com/problems/jump-game-ii/solutions/18014/concise-on-one-loop-java-solution-based-p8i3n/?envType=study-plan-v2&envId=top-interview-150
